@@ -8,7 +8,7 @@
 
 ## Demonstração
 
-![Link](https://rodrigo-dm.github.io/lig4/)
+[Clique aqui para jogar](https://rodrigo-dm.github.io/lig4/)
 
 ![lig4](https://user-images.githubusercontent.com/58209931/121789838-d64cba00-cbaf-11eb-9e9b-b97c075552a9.gif)
 
