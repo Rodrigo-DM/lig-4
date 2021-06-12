@@ -1,106 +1,27 @@
-/*
+<h1 align="center">Lig4</h1>
 
-    0 - Inicial
+## Descrição do Projeto
 
-    I - criar div no html (id = container) - div que guardará todos quadrados  (flex-direction = row)
+<p align="center">
+    Esse projeto foi desenvolvido em grupo. Uma atividade sensacional onde Fernando Feliciano, Guilherme Barreto, Victor Martins e eu (Rodrigo Diniz) programamos juntos o jogo Lig4. Como tema tivemos a inspiração do anime 'Soul Eater'. Aplicamos juntos vários conceitos de programação pra chegarmos a lógica funcional do jogo e um design espetacular utilizando apenas HTML, CSS e JavaScript. Conferi aí!
+</p>
 
-    II - div de colunas (7 colunas flex column-reverse) em js // colunas appendadas no container
+## Demonstração
 
-    <div id=col>
-        <div = quadrado>
-        <div = quadrado>
-        <div = quadrado>
-    </div>
+![Link](https://rodrigo-dm.github.io/lig4/)
 
-    III - div de quadrados (6 quadrados) - Criar o tabuleiro (estrutura) html (divs menores) - deve ser criado no js
+![lig4](https://user-images.githubusercontent.com/58209931/121789838-d64cba00-cbaf-11eb-9e9b-b97c075552a9.gif)
 
-    //quadrados appendados na coluna
+### 🛠 Tecnologias
 
-    estilo de altura, largura e borda > para as divs menores
+- HTML
+- CSS
+- JavaScript
 
+### Autores
+---
 
-    1 - Exiba um disco preto ou vermelho.
+Autores: <b>Fernando Feliciano</b>, <b>Guilherme Barreto</b>, <b>Victor Martins</b>, <b>Rodrigo Diniz</b>.
 
-    Criar uma div de disco (em js)
-
-    classe disco (altura, largura, border-radius), preto (background), vermelho (background)
-
-
-    HADLERS  DE CLICK
-
-    criar função para ser executada no click
-
-    Função {
-        criar um disco (objeto html) > createElement
-        adicionar um estilo de disco (classList.add) (previamente definido no css)
-
-        condição de turno{
-            adicionar um estilo de cor (classList.add) (previamente definido no css)
-            adicionar dataset relacionado a cor
-        }
-
-
-        append do disco na coluna que foi clicada
-
-        Coluna Clicada > event.currentTarget
-    }
-
-
-    Reveze os turnos! Mude a cor do próximo disco após um disco ser adicionado.
-
-    let turno = 1
-
-       Condição de turno{
-        if(turno === 1){}
-        if(turno === 2){}
-    }
-
-
-    3 - Registre a cor dos discos em cada posição do tabuleiro. Você deve ser capaz de fazer o debug via console.log() depois de cada movimento mostrando o estado do tabuleiro.
-
-    Criar um array de (7) arrays
-
-    Criar uma função para atualizar o array de arrays (a partir do dataset dos discos)
-
-
-    ex: 1 === preto         2 === vermelho
-
-
-    array{
-        {1,2,1,1,1,2}
-        {1,2,1,1,1,2}
-        {1,2,1,1,1,2}
-        {1,2,1,1,1,2}
-        {1,2,1,1,1,2}
-        {1,2,1,1,1,2}
-        {1,2,1,1,1,2}
-    }
-
-    4- condição de permissão de jogada
-    Após encher uma coluna (6 discos), não permita que mais discos sejam adicionados.
-    array[i][5] !== undefined
-
-
-    Verifique se o último disco adicionado completou uma linha de quatro peças na coluna (verticalmente).
-
-    Função verifiçãoVertical{
-        verificar a partir do array de arrays se há 4 números iguais consecutivamente para um mesmo índice
-    }
-
-
-    Verifique se o último disco adicionado completou uma linha de quatro peças horizontalmente.
-
-    Função verifiçãoHorizontal{
-        verificar a partir do array de arrays se há 4 números iguais consecutivamente para um mesmo array
-    }
-
-    Verifique se o último disco adicionado completou uma linha de quatro peças em uma diagonal descendente ou ascendente.
-
-    Função verifiçãoDiagonal{
-        XXXX
-    }
-
-
-*/
-
-
+[![Linkedin Badge](https://img.shields.io/badge/-Rodrigo-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/rodrigodmonteiro/)](https://www.linkedin.com/in/rodrigodmonteiro/) 
+[![Gmail Badge](https://img.shields.io/badge/-rodrigo.dmnr@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:rodrigo.dmnr@gmail.com)](mailto:rodrigo.dmnr@gmail.com)
