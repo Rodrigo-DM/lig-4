@@ -1,492 +1,485 @@
 @font-face {
-    font-family: "New Impact";
-    src: local(Raleway), url(./assets/fonts/impact/impact.ttf);
+  font-family: "New Impact";
+  src: local(Raleway), url(./assets/fonts/impact/impact.ttf);
 }
 
 @font-face {
-    font-family: "New Impacted";
-    src: local(Raleway), url(./assets/fonts/impact/Impacted.ttf);
+  font-family: "New Impacted";
+  src: local(Raleway), url(./assets/fonts/impact/Impacted.ttf);
 }
 
-/* @font-face {
-    font-family: "New Unicode Impact";
-    src: local(Raleway), url(./assets/fonts/impact/unicode.impact.ttf);
-} */
-
-:root{
-    --snake-color: white;
+:root {
+  --snake-color: white;
 }
 
-html, body, header, div, main, section{
-	margin: 0;
-	padding: 0;
-	border: none;
-	box-sizing: border-box;
+html,
+body,
+header,
+div,
+main,
+section {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
 }
 
-header{
-    padding-top:20px;
-    font-family: "New Impacted";
+header {
+  padding-top: 20px;
+  font-family: "New Impacted";
 }
 
-.headerIcon{
-    height: 95px;
+.headerIcon {
+  height: 95px;
 }
 
-body{
-    background-image: url(./assets/images/backgroundNuvens.jpg);
-    background-position: top center;
+body {
+  background-image: url(./assets/images/backgroundNuvens.jpg);
+  background-position: top center;
 }
 
-.body-desktop{
-    background-size: cover;
+.body-desktop {
+  background-size: cover;
 }
 
-.castelo{
-    background-image: url(./assets/images/tabuleiroMobile.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 320px;
-    height:350px;
-    /* z-index: -1; */
-    position:relative;
+.castelo {
+  background-image: url(./assets/images/tabuleiroMobile.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 320px;
+  height: 350px;
+  position: relative;
 }
 
-
-
-h1{
-    color: white;
-    margin: 0;
-    -webkit-text-stroke-width: 4px;
-    -webkit-text-stroke-color: #000;
-    font-size: 80px;
+h1 {
+  color: white;
+  margin: 0;
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: #000;
+  font-size: 80px;
 }
 
-h2{
-    color: white;
-    margin: 0;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: rgba(27, 27, 27, 0.753);
-    font-size: 40px;
+h2 {
+  color: white;
+  margin: 0;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: rgba(27, 27, 27, 0.753);
+  font-size: 40px;
 }
 
-h3{
-    color: white;
-    margin: 0;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgba(27, 27, 27, 0.432);
-    font-size: 20px;
+h3 {
+  color: white;
+  margin: 0;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgba(27, 27, 27, 0.432);
+  font-size: 20px;
 }
 
-.gameTitle{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
+.gameTitle {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 50px;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+  position: relative;
 }
 
 .players {
-    margin: 10px;
-    display: flex;
-    width: 280px;
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
+  margin: 10px;
+  display: flex;
+  width: 280px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .player {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100px;
-    height: 100%;
-    position:relative;
-    overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100px;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
-.player{
-    font-family: "New Impact";
-    color:white;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #000;
-    padding: 5px 10px;
-    width:120px;
-}
-
-.player span{
-    position: absolute;
-    display:block;
+.player {
+  font-family: "New Impact";
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
+  padding: 5px 10px;
+  width: 120px;
 }
 
-.dia{
-    animation: virardia 2s forwards;
+.player span {
+  position: absolute;
+  display: block;
+}
+
+.dia {
+  animation: virardia 2s forwards;
 }
 
 @keyframes virardia {
-    0%{
-        background-image:url(./assets/images/backgroundNuvens.jpg);
-    }
-    100%{
-        background-image:url(./assets/images/vitoriaSol.jpg);
-    }
-
+  0% {
+    background-image: url(./assets/images/backgroundNuvens.jpg);
+  }
+  100% {
+    background-image: url(./assets/images/vitoriaSol.jpg);
+  }
 }
-.noite{
-    animation: virarnoite 2s forwards;
+.noite {
+  animation: virarnoite 2s forwards;
 }
 
 @keyframes virarnoite {
-    0%{
-        background-image:url(./assets/images/backgroundNuvens.jpg);
-    }
-    100%{
-        background-image:url(./assets/images/vitoriaLua.jpg);
-    }
+  0% {
+    background-image: url(./assets/images/backgroundNuvens.jpg);
+  }
+  100% {
+    background-image: url(./assets/images/vitoriaLua.jpg);
+  }
 }
 
 .container {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 8%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    background-color: transparent;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 8%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  background-color: transparent;
 }
 
 .colunas {
-    cursor: pointer;
-    display: flex;
-    flex-flow: column-reverse nowrap;
+  cursor: pointer;
+  display: flex;
+  flex-flow: column-reverse nowrap;
 }
 
-.colunas:hover{
-    box-shadow: 0px -5px 5px 2px white inset;
+.colunas:hover {
+  box-shadow: 0px -5px 5px 2px white inset;
 }
 
 .quadrados {
-    width: 29px;
-    height: 29px;
-    /* border: 1px solid #000; */
-    box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.15) inset;
+  width: 29px;
+  height: 29px;
+  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.15) inset;
 }
 
-.playerIcon{
-    width: 40px;
-    height: 40px;
+.playerIcon {
+  width: 40px;
+  height: 40px;
 }
 
 .disco {
-    width: 29px;
-    height: 29px;
-    border-radius: 50%;
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
 }
 
 .preto {
-    background-color: #000;
+  background-color: #000;
 }
 
 .vermelho {
-    background-color: #ff0000;
+  background-color: #ff0000;
 }
 
-.cheio{
-    position: absolute;
-    color: white;
-    top: 15%;
-    border-radius: 10px;
-    padding: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    font-family: "New Impact";
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgba(65, 62, 62, 0.623);
-    width: 200px;
-    text-align: center;
-    
+.cheio {
+  position: absolute;
+  color: white;
+  top: 15%;
+  border-radius: 10px;
+  padding: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  font-family: "New Impact";
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgba(65, 62, 62, 0.623);
+  width: 200px;
+  text-align: center;
 }
 
-.vencedorSol{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    font-size: 17px;
-    width: 250px;
-    height: 150px;
-    border-radius: 15px;
-    /* background: linear-gradient(#ff7301,#ffc815); */
+.vencedorSol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 17px;
+  width: 250px;
+  height: 150px;
+  border-radius: 15px;
 }
 
-.vencedorLua{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    font-size: 17px;
-    color: white;
-    width: 250px;
-    height: 150px;
-    border-radius: 15px;
-    /* background: linear-gradient(#0a0944,#939399); */
+.vencedorLua {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 17px;
+  color: white;
+  width: 250px;
+  height: 150px;
+  border-radius: 15px;
 }
 
-.empate{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    font-size: 17px;
-    color: white;
-    width: 250px;
-    height: 150px;
-    border-radius: 10px;
-    /* background: linear-gradient(#ff3c01,#030233); */
+.empate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 17px;
+  color: white;
+  width: 250px;
+  height: 150px;
+  border-radius: 10px;
 }
 
-.botao{
-    padding: 10px 20px 10px 20px;
-    background: linear-gradient(217deg, rgba(73, 142, 206, 0.8), rgba(100,55,100,0) 70.71%),
-            linear-gradient(127deg, rgba(20,1,200,.8), rgba(0,120,30,0) 70.71%),
-            linear-gradient(336deg, rgba(110,0,255,.8), rgba(0,0,255,0) 70.71%);
-    border-radius: 10px;
-    color:white;
-    border: none;
-    box-shadow: 4px 4px 3px 1px black;
-    font-weight: bold;
-    cursor: pointer;
+.botao {
+  padding: 10px 20px 10px 20px;
+  background: linear-gradient(
+      217deg,
+      rgba(73, 142, 206, 0.8),
+      rgba(100, 55, 100, 0) 70.71%
+    ),
+    linear-gradient(127deg, rgba(20, 1, 200, 0.8), rgba(0, 120, 30, 0) 70.71%),
+    linear-gradient(336deg, rgba(110, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  border-radius: 10px;
+  color: white;
+  border: none;
+  box-shadow: 4px 4px 3px 1px black;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.botao:hover{
-    cursor: pointer;
-    box-shadow: 0 0 10px hsl(263, 100%, 58%), 0 0 15px hsl(263, 100%, 70%), 0 0 10px hsl(263, 100%, 58%);
+.botao:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px hsl(263, 100%, 58%), 0 0 15px hsl(263, 100%, 70%),
+    0 0 10px hsl(263, 100%, 58%);
 }
 
-.botao:active{
-    cursor: pointer;
-    transform: translate(2px,2px);
-    box-shadow: 2px 2px 3px 1px black;
+.botao:active {
+  cursor: pointer;
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 3px 1px black;
 }
 
-.sunSE{
-    background-image: url(assets/images/sunSE.gif);
-    background-size: contain;
-    background-repeat: no-repeat;
+.sunSE {
+  background-image: url(assets/images/sunSE.gif);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
-.moonSE{
-    background-image: url(assets/images/moonSE.gif);
-    background-size: contain;
-    background-repeat: no-repeat;
+.moonSE {
+  background-image: url(assets/images/moonSE.gif);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #currentPlayer > div {
-    display: none;
+  display: none;
 }
 
 /*efeito do jogador*/
-.playerturn span:nth-child(1){
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--snake-color));
-    animation: animate1 1s linear infinite;
-
+.playerturn span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--snake-color));
+  animation: animate1 1s linear infinite;
 }
 
-@keyframes animate1{
-    0%{
-        left:-100%;
-    }
-    50%,100%{
-        left:100%;
-    }
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
 }
 
-.playerturn span:nth-child(2){
+.playerturn span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, var(--snake-color));
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes animate2 {
+  0% {
     top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, var(--snake-color));
-    animation: animate2 1s linear infinite;
-    animation-delay: 0.25s;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
 }
 
-@keyframes animate2{
-    0%{
-        top:-100%;
-    }
-    50%,100%{
-        top:100%;
-    }
+.playerturn span:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, var(--snake-color));
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
 }
 
-.playerturn span:nth-child(3){
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(270deg, transparent, var(--snake-color));
-    animation: animate3 1s linear infinite;
-    animation-delay: 0.5s;
-
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
 }
 
-@keyframes animate3{
-    0%{
-        right:-100%;
-    }
-    50%,100%{
-        right:100%;
-    }
+.playerturn span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(0deg, transparent, var(--snake-color));
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
 }
 
-.playerturn span:nth-child(4){
+@keyframes animate4 {
+  0% {
     bottom: -100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(0deg, transparent, var(--snake-color));
-    animation: animate4 1s linear infinite;
-    animation-delay: 0.75s;
-}
-
-@keyframes animate4{
-    0%{
-        bottom:-100%;
-    }
-    50%,100%{
-        bottom:100%;
-    }
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
 }
 
 .central {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-#start{
-    font-family: "New Impact";
-    width: 200px;
-    height: 50px;
-    font-size: 20px;
-    letter-spacing:3px;
-    font-style: none;
-    font-weight: 500;
-    -webkit-text-stroke-color: rgba(27, 27, 27, 0.753);
+#start {
+  font-family: "New Impact";
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  letter-spacing: 3px;
+  font-style: none;
+  font-weight: 500;
+  -webkit-text-stroke-color: rgba(27, 27, 27, 0.753);
 }
 
 #start:active {
-    cursor: pointer;
-    transform: translate(-45%, -40%);
-    box-shadow: 2px 2px 3px 1px black;
+  cursor: pointer;
+  transform: translate(-45%, -40%);
+  box-shadow: 2px 2px 3px 1px black;
 }
 
 #mute {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
-.sound-control{
-    cursor: pointer;
-    position: absolute;
-    top: 3%;
-    left: 2%;
-    width: 50px;
-    height:100px;
+.sound-control {
+  cursor: pointer;
+  position: absolute;
+  top: 3%;
+  left: 2%;
+  width: 50px;
+  height: 100px;
 }
 
-.sound-control:hover > #volume-control{
-    display:block;
+.sound-control:hover > #volume-control {
+  display: block;
 }
 
-
-.sound-control:hover{
+#volume-control {
+  position: absolute;
+  top: 45%;
+  left: -64%;
+  cursor: pointer;
 }
 
-#volume-control{
-    position:absolute;
-    top: 45%;
-    left: -64%;
-    cursor:pointer;
+.vertical {
+  transform: rotate(-90deg) translateY(100%);
+  width: 50px;
 }
 
-.vertical{
-    transform: rotate(-90deg) translateY(100%);
-    width:50px;
-}
-
-#volume{
-    width:50px
+#volume {
+  width: 50px;
 }
 
 @media screen and (min-width: 490px) {
-    #currentPlayer > div {
-        display: block;
-        margin: 20px;
-        width: 260px;
-        height: 260px;
-    }
+  #currentPlayer > div {
+    display: block;
+    margin: 20px;
+    width: 260px;
+    height: 260px;
+  }
 }
 
-@media only screen and (min-width: 720px){
+@media only screen and (min-width: 720px) {
+  #volume-control {
+    position: absolute;
+    width: 80px;
+    top: 63%;
+    left: -91%;
+  }
 
-    #volume-control{
-        position:absolute;
-        width: 80px;
-        top: 63%;
-        left: -91%;
-    }
+  .castelo {
+    background-image: url(./assets/images/tabuleiroPc.png);
+    width: 650px;
+    height: 480px;
+  }
 
-    .castelo{
-        background-image: url(./assets/images/tabuleiroPc.png);
-        width: 650px;
-        height: 480px;
-    }
+  .quadrados {
+    width: 40px;
+    height: 40px;
+  }
 
-    .quadrados{
-        width: 40px;
-        height: 40px;
-    }
+  .disco {
+    width: 40px;
+    height: 40px;
+  }
 
-    .disco{
-        width: 40px;
-        height: 40px;
-    }
+  .players {
+    width: 600px;
+    position: absolute;
+    top: 10%;
+  }
 
-    .players{
-        width: 600px;
-        position: absolute;
-        top: 10%;
-    }
+  h1 {
+    font-size: 110px;
+  }
 
-    h1{
-        font-size:110px;
-    }
+  .headerIcon {
+    height: 130px;
+  }
 
-    .headerIcon{
-        height: 130px;
-    }
-
-    .cheio{
-        top: 5%;
-        width: 250px;
-    }
+  .cheio {
+    top: 5%;
+    width: 250px;
+  }
 }

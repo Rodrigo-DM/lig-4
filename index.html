@@ -1,26 +1,24 @@
-<!-- https://victorsnms.gitlab.io/lig4 -->
-<!-- https://gitlab.com/victorsnms/lig4 -->
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
     <title>Lig 4</title>
     <link rel="icon" href="./assets/images/logo.png">
-    <link rel="stylesheet" href="style.css">
-    <audio id = "soundtrack" src="assets/sounds/SEbackgroundmusic.mp3"></audio>
-    <audio id = "sfx" src="assets/sounds/bassSFX.mp3"></audio>
-    <audio id = "victoryTheme" src="assets/sounds/victoryTheme.mp3"></audio>
 </head>
+
 <body>
     <img src="./assets/images/vitoriaLua.jpg" alt="vitoria da lua" class="hidden">
     <img src="./assets/images/vitoriaSol.jpg" alt="vitoria do sol" class="hidden">
     <header>
         <div class="gameTitle">
             <h1>LIG</h1>
-            <img class = "headerIcon" src="./assets/images/logo.png" alt="title logo">
+            <img class="headerIcon" src="./assets/images/logo.png" alt="title logo">
             <h1>4</h1>
         </div>
     </header>
@@ -33,7 +31,7 @@
                 <span></span>
                 <span></span>
                 <span></span>
-                <img class = "playerIcon" src="./assets/images/sunSE.gif" alt="player 1 icon">
+                <img class="playerIcon" src="./assets/images/sunSE.gif" alt="player 1 icon">
                 <p>Player 1</p>
             </div>
             <div id="player2" class="player">
@@ -41,7 +39,7 @@
                 <span></span>
                 <span></span>
                 <span></span>
-                <img class = "playerIcon" src="./assets/images/moonSE.gif" alt="player 1 icon">
+                <img class="playerIcon" src="./assets/images/moonSE.gif" alt="player 1 icon">
                 <p>Player 2</p>
             </div>
         </section>
@@ -49,13 +47,22 @@
             <div class="container"></div>
         </div>
         <div id=currentPlayer></div>
-        <button id="reset" class="hidden">Play Again!</button>
+        <button id="reset" class="hidden botao">Play Again!</button>
     </main>
+
     <button id="start" class="botao central">Play Game!</button>
+
     <div id="sound-control" class="sound-control hidden">
         <img id="mute" class="hidden" src="./assets/images/volume.png" alt="mutar / desmutar o volume">
-        <input  id="volume-control" class="vertical hidden"  type="range" id="cowbell" name="cowbell" min="0" max="100" value="45" step="5">
+        <input id="volume-control" class="vertical hidden" type="range" id="cowbell" name="cowbell" min="0" max="100"
+            value="45" step="5">
     </div>
+
+    <audio id="soundtrack" src="assets/sounds/SEbackgroundmusic.mp3"></audio>
+    <audio id="sfx" src="assets/sounds/bassSFX.mp3"></audio>
+    <audio id="victoryTheme" src="assets/sounds/victoryTheme.mp3"></audio>
+
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
+
 </html>
