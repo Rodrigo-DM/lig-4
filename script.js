@@ -304,13 +304,17 @@ const gifVencedor = (parent) => {
 //Funções de jogada
 const mudaTurno = () => {
     if (turno === 1) {
-        return turno = 2;
+        turno = 2;
+        currentPlayer();
+
+        return; 
     }
     if (turno === 2) {
-        return turno = 1;
+        turno = 1;
+        currentPlayer();
+        
+        return; 
     }
-
-    currentPlayer();
 }
 
 const somJogada = () => {
@@ -366,6 +370,7 @@ function setColuna(e) {
     const colunaEscolhida = e.currentTarget;
 
     verificarColuna(colunaEscolhida);
+    console.log(turno)
 }
 
 colunas.forEach((item) => {
@@ -390,11 +395,8 @@ const reset = () => {
     tabuleiro = [[], [], [], [], [], [], []];
 
     const quadrados = document.querySelectorAll('.quadrados');
-
     quadrados.forEach(quadrado => quadrado.innerHTML = '');
-
     castelo.classList.remove('hidden');
-
     currentPlayer();
 }
 
