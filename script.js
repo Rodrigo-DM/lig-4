@@ -17,6 +17,10 @@ const sfx = document.getElementById('sfx');
 const victoryTheme = document.getElementById('victoryTheme');
 const backgroundMusic = document.getElementById('soundtrack');
 
+let modoMusica = true;
+let turno = 1;
+let tabuleiro = [[], [], [], [], [], [], []];
+
 //checar volume
 setInterval(function () {
     backgroundMusic.volume = volumeControl.value / 100;
@@ -24,11 +28,9 @@ setInterval(function () {
     sfx.volume = volumeControl.value / 300;
 }, 500);
 
-let modoMusica = true;
-let turno = 1;
-let tabuleiro = [[], [], [], [], [], [], []];
 
-//Declaração de elementos HTML 1- createElements  2- classlist 3- append
+
+// Criação de colunas e quadrados 
 for (let i = 0; i < 7; i++) {
     const coluna = document.createElement('div');
     coluna.classList.add('colunas');
@@ -44,25 +46,37 @@ colunas.forEach(coluna => {
     }
 })
 
+// criação de discos
 const criarDisco = () => {
     const disco = document.createElement('div');
     disco.classList.add('disco');
+
     if (turno === 1) {
         disco.classList.add('sunSE');
-        disco.dataset.cor = 'preto'
+        disco.dataset.cor = 'preto';
+
     } else if (turno === 2) {
         disco.classList.add('moonSE');
-        disco.dataset.cor = 'vermelho'
+        disco.dataset.cor = 'vermelho';
     }
-    return disco
+
+    return disco;
 }
 
-//Declaração de Funções
+//Verificação jogador da vez
+const currentPlayer = () => {
+    if (turno === 1) {
+        player1.classList.add('playerturn');
+        player2.classList.remove('playerturn');
+    } else if (turno === 2) {
+        player1.classList.remove('playerturn');
+        player2.classList.add('playerturn');
+    }
+}
 
 //Função de Verificação de Vitória
 
-//Outras funções
-
+//Botão de iniciar
 btnStart.addEventListener('click', () => {
     btnStart.classList.add('hidden');
     main.classList.remove('hidden');
@@ -73,32 +87,203 @@ btnStart.addEventListener('click', () => {
     currentPlayer();
 })
 
+//Mutar fundo musical
 btnMute.addEventListener('click', () => {
     if (modoMusica === true) {
         backgroundMusic.muted = true;
         victoryTheme.muted = true;
         sfx.muted = true;
         modoMusica = false;
-        btnMute.src = "./assets/images/mute.png"
+        btnMute.src = "./assets/images/mute.png";
     } else if (modoMusica === false) {
         backgroundMusic.muted = false;
         victoryTheme.muted = false;
         sfx.muted = false;
         modoMusica = true;
-        btnMute.src = "./assets/images/volume.png"
+        btnMute.src = "./assets/images/volume.png";
     }
 
 
 })
 
+//Atualizar array de verificação
+const verificarTabuleiro = () => {
+    let newArray = [[], [], [], [], [], [], []];
+
+    for (let i = 0; i < colunas.length; i++) {
+        let quadrados = colunas[i].querySelectorAll('.quadrados');
+
+        for (j = 0; j < quadrados.length; j++) {
+            let discoPosicao = quadrados[j].firstElementChild;
+
+            if (discoPosicao === null) {
+                break;
+            }
+
+            if (discoPosicao.dataset.cor === 'preto') {
+                newArray[i].push(1);
+            }
+
+            if (discoPosicao.dataset.cor === 'vermelho') {
+                newArray[i].push(2);
+            }
+        }
+    }
+
+    tabuleiro = newArray;
+}
+
+//Verificações de resultado
+
+//Verificação Horizontal
+const verificarHorizontal = () => {
+    for (let j = 0; j < 6; j++) {
+        for (let i = 0; i < 4; i++) {
+            let discoA = tabuleiro[i][j];
+            let discoB = tabuleiro[i + 1][j];
+            let discoC = tabuleiro[i + 2][j];
+            let discoD = tabuleiro[i + 3][j];
+
+            if (discoA === discoB && discoB === discoC && discoC === discoD) {
+                if (discoA === 1) {
+                    return 'preto';
+
+                } else if (discoA === 2) {
+                    return 'vermelho';
+                }
+            }
+        }
+    }
+
+    return null;
+}
+
+
+//Verificação Vertical
+const verificarVertical = () => {
+    for (let i = 0; i < tabuleiro.length; i++) {
+        if (tabuleiro[i].length > 3) {
+            for (let j = 0; j < 3; j++) {
+                let discoA = tabuleiro[i][j];
+                let discoB = tabuleiro[i][j + 1];
+                let discoC = tabuleiro[i][j + 2];
+                let discoD = tabuleiro[i][j + 3];
+
+                if (discoA === discoB && discoB === discoC && discoC === discoD) {
+                    if (discoA === 1) {
+                        return 'preto';
+                    } else if (discoA === 2) {
+                        return 'vermelho';
+                    }
+                }
+            }
+        }
+    }
+
+    return null;
+}
+
+//Verificação Diagonal
+const verificarDiagonal = () => {
+    for (let j = 0; j < 3; j++) {
+        for (let i = 0; i < 4; i++) {
+            let discoA = tabuleiro[i][j];
+            let discoB = tabuleiro[i + 1][j + 1];
+            let discoC = tabuleiro[i + 2][j + 2];
+            let discoD = tabuleiro[i + 3][j + 3];
+
+            if (discoA === discoB && discoB === discoC && discoC === discoD) {
+                if (discoA === 1) {
+                    return 'preto';
+                } else if (discoA === 2) {
+                    return 'vermelho';
+                }
+            }
+        }
+    }
+
+    for (let j = 0; j < 3; j++) {
+        for (let i = 6; i > 2; i--) {
+            let discoA = tabuleiro[i][j];
+            let discoB = tabuleiro[i - 1][j + 1];
+            let discoC = tabuleiro[i - 2][j + 2];
+            let discoD = tabuleiro[i - 3][j + 3];
+
+            if (discoA === discoB && discoB === discoC && discoC === discoD) {
+                if (discoA === 1) {
+                    return 'preto';
+                } else if (discoA === 2) {
+                    return 'vermelho';
+                }
+            }
+        }
+    }
+
+    return null;
+}
+
+// verificação de empate 
+const verificarEmpate = () => {
+    let count = 0;
+
+    tabuleiro.forEach(coluna => {
+        if (coluna.length === 6) {
+            count++;
+        } else {
+            return;
+        }
+    });
+
+    if (count === 7) {
+        return 'empate';
+    }
+}
+
+//Verifica se já tem um resultado
+const fimJogo = () => {
+    verificarTabuleiro();
+
+    let vencedorVertical = verificarVertical();
+    let vencedorHorizontal = verificarHorizontal();
+    let vencedorDiagonal = verificarDiagonal();
+    let empate = verificarEmpate();
+
+    if (vencedorVertical === null && vencedorHorizontal === null && vencedorDiagonal === null && empate === null) {
+        return false;
+    }
+
+    if (vencedorVertical === 'preto' || vencedorHorizontal === 'preto' || vencedorDiagonal === 'preto') {
+        alerta('vencedorSol', `<h3>No dia mais claro...</h3><h2>o Sol venceu!</h2>`, resultado);
+        document.body.classList.add("dia");
+        gifVencedor(vencedorBox);
+
+        return true;
+    }
+
+    if (vencedorVertical === 'vermelho' || vencedorHorizontal === 'vermelho' || vencedorDiagonal === 'vermelho') {
+        alerta('vencedorLua', `<h3>Na noite mais escura...</h3><h2>a Lua venceu!</h2>`, resultado);
+        document.body.classList.add("noite");
+        gifVencedor(vencedorBox);
+
+        return true;
+    }
+
+    if (empate === 'empate') {
+        alerta('empate', `<h3>Nem Sol nem Lua...</h3><br><h2>Empate!</h2>`, resultado);
+        
+        return true;
+    }
+}
+
+//Muda para fundo musical de resultado da partida
 const changeMusic = () => {
-    //parar musica de background
     backgroundMusic.pause();
     backgroundMusic.currentTime = 0;
     victoryTheme.currentTime = 0;
     victoryTheme.play();
 }
 
+//Funções de mensagens
 const alerta = (classe, texto, eltpai) => {
     const msg = document.createElement('span');
     msg.classList.add(classe);
@@ -116,20 +301,7 @@ const gifVencedor = (parent) => {
     parent.appendChild(vencedor);
 }
 
-//Verificação de Turno
-const currentPlayer = () => {
-    if (turno === 1) {
-        player1.classList.add('playerturn')
-        player2.classList.remove('playerturn')
-    } else if (turno === 2) {
-        player1.classList.remove('playerturn')
-        player2.classList.add('playerturn')
-    }
-}
-
-
-//Função do Handler
-
+//Funções de jogada
 const mudaTurno = () => {
     if (turno === 1) {
         return turno = 2;
@@ -200,181 +372,8 @@ colunas.forEach((item) => {
     item.addEventListener('click', setColuna);
 })
 
-   
-
-
-
-//Atualizar array de arrays
-const verificarTabuleiro = () => {
-    let newArray = [[], [], [], [], [], [], []];
-
-    for (let i = 0; i < colunas.length; i++) {
-        let quadrados = colunas[i].querySelectorAll('.quadrados')
-        for (j = 0; j < quadrados.length; j++) {
-            let discoPosicao = quadrados[j].firstElementChild
-            if (discoPosicao === null) {
-                break;
-            }
-            if (discoPosicao.dataset.cor === 'preto') {
-                newArray[i].push(1)
-            }
-            if (discoPosicao.dataset.cor === 'vermelho') {
-                newArray[i].push(2)
-
-            }
-        }
-    }
-
-    tabuleiro = newArray;
-}
-
-
-//Verificações de Vitória
-//Verificação Horizontal
-
-const verificarHorizontal = () => {
-
-    for (let j = 0; j < 6; j++) {
-
-
-        for (let i = 0; i < 4; i++) {
-
-
-            let discoA = tabuleiro[i][j];
-            let discoB = tabuleiro[i + 1][j];
-            let discoC = tabuleiro[i + 2][j];
-            let discoD = tabuleiro[i + 3][j];
-
-            if (discoA === discoB && discoB === discoC && discoC === discoD) {
-                if (discoA === 1) {
-                    return 'preto'
-
-                } else if (discoA === 2) {
-                    return 'vermelho'
-                }
-            }
-        }
-    }
-
-    return null;
-}
-
-
-//Verificação Vertical
-const verificarVertical = () => {
-    for (let i = 0; i < tabuleiro.length; i++) {
-        if (tabuleiro[i].length > 3) {
-            for (let j = 0; j < 3; j++) {
-                let discoA = tabuleiro[i][j];
-                let discoB = tabuleiro[i][j + 1];
-                let discoC = tabuleiro[i][j + 2];
-                let discoD = tabuleiro[i][j + 3];
-
-                if (discoA === discoB && discoB === discoC && discoC === discoD) {
-                    if (discoA === 1) {
-                        return 'preto'
-                    } else if (discoA === 2) {
-                        return 'vermelho'
-                    }
-                }
-            }
-        }
-    }
-
-    return null;
-}
-
-//Verificação Diagonal
-const verificarDiagonal = () => {
-    for (let j = 0; j < 3; j++) {
-        for (let i = 0; i < 4; i++) {
-            let discoA = tabuleiro[i][j];
-            let discoB = tabuleiro[i + 1][j + 1];
-            let discoC = tabuleiro[i + 2][j + 2];
-            let discoD = tabuleiro[i + 3][j + 3];
-
-            if (discoA === discoB && discoB === discoC && discoC === discoD) {
-                if (discoA === 1) {
-                    return 'preto'
-                } else if (discoA === 2) {
-                    return 'vermelho'
-                }
-            }
-        }
-    }
-
-    for (let j = 0; j < 3; j++) {
-        for (let i = 6; i > 2; i--) {
-            let discoA = tabuleiro[i][j];
-            let discoB = tabuleiro[i - 1][j + 1];
-            let discoC = tabuleiro[i - 2][j + 2];
-            let discoD = tabuleiro[i - 3][j + 3];
-
-            if (discoA === discoB && discoB === discoC && discoC === discoD) {
-                if (discoA === 1) {
-                    return 'preto'
-                } else if (discoA === 2) {
-                    return 'vermelho'
-                }
-            }
-        }
-    }
-
-    return null;
-}
-
-// verificação de empate 
-const verificarEmpate = () => {
-    let count = 0;
-
-    tabuleiro.forEach(coluna => {
-        if (coluna.length === 6) {
-            count++;
-        } else {
-            return;
-        }
-    });
-
-    if (count === 7) {
-        return 'empate'
-    }
-}
-
-const fimJogo = () => {
-
-    verificarTabuleiro();
-
-    let vencedorVertical = verificarVertical();
-    let vencedorHorizontal = verificarHorizontal();
-    let vencedorDiagonal = verificarDiagonal();
-    let empate = verificarEmpate();
-
-    if (vencedorVertical === null && vencedorHorizontal === null && vencedorDiagonal === null && empate === null) {
-        return false;
-    }
-
-    if (vencedorVertical === 'preto' || vencedorHorizontal === 'preto' || vencedorDiagonal === 'preto') {
-        alerta('vencedorSol', `<h3>No dia mais claro...</h3><h2>o Sol venceu!</h2>`, resultado);
-        document.body.classList.add("dia");
-        gifVencedor(vencedorBox);
-        return true;
-    }
-
-    if (vencedorVertical === 'vermelho' || vencedorHorizontal === 'vermelho' || vencedorDiagonal === 'vermelho') {
-        alerta('vencedorLua', `<h3>Na noite mais escura...</h3><h2>a Lua venceu!</h2>`, resultado);
-        document.body.classList.add("noite");
-        gifVencedor(vencedorBox);
-        return true;
-    }
-
-    if (empate === 'empate') {
-        alerta('empate', `<h3>Nem Sol nem Lua...</h3><br><h2>Empate!</h2>`, resultado);
-        return true;
-    }
-}
-
+//Reiniciar
 const reset = () => {
-    //parar som de vitória
     victoryTheme.pause();
     victoryTheme.currentTime = 0;
     backgroundMusic.currentTime = 0;
