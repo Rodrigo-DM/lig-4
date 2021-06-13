@@ -370,7 +370,6 @@ function setColuna(e) {
     const colunaEscolhida = e.currentTarget;
 
     verificarColuna(colunaEscolhida);
-    console.log(turno)
 }
 
 colunas.forEach((item) => {
