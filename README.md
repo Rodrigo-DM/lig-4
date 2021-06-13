@@ -3,7 +3,7 @@
 ## Descrição do Projeto
 
 <p align="center">
-    Esse projeto foi desenvolvido em grupo. Uma atividade sensacional onde Fernando Feliciano, Guilherme Barreto, Victor Martins e eu (Rodrigo Diniz) programamos juntos o jogo Lig4. Como tema tivemos a inspiração do anime 'Soul Eater'. Aplicamos juntos vários conceitos de programação pra chegarmos a lógica funcional do jogo e um design espetacular utilizando apenas HTML, CSS e JavaScript. Conferi aí!
+    Esse projeto foi desenvolvido em grupo. Uma atividade sensacional onde Fernando Feliciano, Guilherme Barreto, Victor Martins e eu (Rodrigo Diniz) programamos juntos o jogo Lig4. Como tema tivemos a inspiração do anime 'Soul Eater'. Aplicamos juntos vários conceitos de programação para chegarmos a lógica funcional do jogo e um design espetacular utilizando apenas HTML, CSS e JavaScript. Confere aí!
 </p>
 
 ## Demonstração
